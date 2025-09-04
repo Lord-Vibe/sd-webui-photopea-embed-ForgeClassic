@@ -79,48 +79,74 @@ def on_ui_tabs():
                 )
             with gr.Column():
                 send_selection_inpaint = gr.Button(value="Inpaint selection")
+            
+            with gr.Column():
+                send_mask_t2i_cn = gr.Button(
+                    value="Send image and mask to txt2img ControlNet", visible=controlnet_exists
+                )
+                send_mask_i2i_cn = gr.Button(
+                    value="Send image and mask to img2img ControlNet", visible=controlnet_exists
+                )
 
         with gr.Row():
             gr.HTML(
-                """<font size="small"><p align="right">Consider supporting Photopea by <a href="https://www.photopea.com/api/accounts" target="_blank">going Premium</a>!</font></p>"""
+                """<font size="small"><p align="right">
+                When sending an image to img2img Controlnet, make sure that "Upload Independent Control Image" is checked.<br>
+                When using the "Send image and mask to Controlnet" function, make sure that the "Use Mask" box is checked.<br>
+                Image and mask will not appear in the Controlnet section until you do an action that changes the UI in any way. (Ex: Changing the Controlnet tab, resizing the window, etc.)<br>
+                Consider supporting Photopea by <a href="https://www.photopea.com/api/accounts" target="_blank">going Premium</a>!
+                </font></p>"""
             )
-        # The getAndSendImageToWebUITab in photopea-bindings.js takes the following parameters:
-        #  webUiTab: the name of the tab. Used to find the gallery via DOM queries.
-        #  sendToControlnet: if true, tries to send it to a specific ControlNet widget, otherwise, sends to the native WebUI widget.
-        #  controlnetModelIndex: the index of the desired controlnet model tab.
+        
         send_t2i_cn.click(
-            None,
-            select_target_index,
-            None,
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
             _js="(i) => {getAndSendImageToWebUITab('txt2img', true, i)}",
         )
         send_extras.click(
-            None,
-            select_target_index,
-            None,
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
             _js="(i) => {getAndSendImageToWebUITab('extras', false, i)}",
         )
         send_i2i.click(
-            None,
-            select_target_index,
-            None,
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
             _js="(i) => {getAndSendImageToWebUITab('img2img', false, i)}",
         )
         send_i2i_cn.click(
-            None,
-            select_target_index,
-            None,
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
             _js="(i) => {getAndSendImageToWebUITab('img2img', true, i)}",
         )
-        send_selection_inpaint.click(fn=None, _js="sendImageWithMaskSelectionToWebUi")
+        send_selection_inpaint.click(
+            fn=None,
+            inputs=[],
+            outputs=None,
+            _js="() => {sendImageWithMaskSelectionToWebUi()}",
+        )
+        
+        send_mask_t2i_cn.click(
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
+            _js="(i) => {sendImageAndMaskToControlNet('txt2img', i)}"
+        )
+        send_mask_i2i_cn.click(
+            fn=None,
+            inputs=[select_target_index],
+            outputs=None,
+            _js="(i) => {sendImageAndMaskToControlNet('img2img', i)}"
+        )
 
     return [(photopea_tab, "Photopea", "photopea_embed")]
 
 
-# Initialize Photopea with an empty, 512x512 white image. It's baked as a base64 string with URI encoding.
 def get_photopea_url_params():
     return "#%7B%22resources%22:%5B%22data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIAAQMAAADOtka5AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAAANQTFRF////p8QbyAAAADZJREFUeJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfBuCAAAB0niJ8AAAAABJRU5ErkJggg==%22%5D%7D"
 
 
-# Actually hooks up the tab to the WebUI tabs.
 script_callbacks.on_ui_tabs(on_ui_tabs)

@@ -1,3 +1,7 @@
+A vibe coded fork of [Yankooliveira's](https://github.com/yankooliveira/sd-webui-photopea-embed) Photopea extension. In theory it fixes a bug that prevented "Inpaint Selection" from working correctly, but the code in the orgiginal must of heard that is was going to be replaced and the issue mysteriously stopped.
+
+Big thanks to Yankooliveira for the original extension! Check out his other projects [here](https://github.com/yankooliveira) and check out his itch.io [here!](https://yanko.itch.io)  
+
 ## Maintenance status: Legacy | Unmaintained
 I haven't had enough bandwidth to properly maintain this project for a while now, so as of November 2024, I'm considering it officially halted. It should still (somewhat) work on SD WebUI, but I never really used Forge, so it's probably _very_ buggy there.
 Consider using the much better integrated [Stable Diffusion PS Pea](https://github.com/huchenlei/stable-diffusion-ps-pea) extension by [huchenlei](https://github.com/huchenlei/)!
@@ -95,3 +99,4 @@ You agree not to use the extension or derivatives of the extension:
 
 - To generate or disseminate information for the purpose to be used for administration of justice, law enforcement, immigration or asylum processes, such as predicting an individual will commit fraud/crime commitment (e.g. by text profiling, drawing causal relationships between assertions made in documents, indiscriminate and arbitrarily-targeted use).
 -----
+

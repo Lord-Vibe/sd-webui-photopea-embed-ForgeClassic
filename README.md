@@ -1,4 +1,4 @@
-A vibe coded fork of [Yankooliveira's](https://github.com/yankooliveira/sd-webui-photopea-embed) Photopea extension. In theory it fixes a bug that prevented "Inpaint Selection" from working correctly, but the code in the orgiginal must of heard that is was going to be replaced and the issue mysteriously stopped.
+A vibe coded fork of [Yankooliveira's](https://github.com/yankooliveira/sd-webui-photopea-embed) Photopea extension. In theory it fixes a bug that prevented "Inpaint Selection" from working correctly, but the code in the original must of heard that is was going to be replaced and the issue mysteriously stopped.
 
 Big thanks to Yankooliveira for the original extension! Check out his other projects [here](https://github.com/yankooliveira) and check out his itch.io [here!](https://yanko.itch.io)  
 
@@ -99,4 +99,5 @@ You agree not to use the extension or derivatives of the extension:
 
 - To generate or disseminate information for the purpose to be used for administration of justice, law enforcement, immigration or asylum processes, such as predicting an individual will commit fraud/crime commitment (e.g. by text profiling, drawing causal relationships between assertions made in documents, indiscriminate and arbitrarily-targeted use).
 -----
+
 

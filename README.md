@@ -1,3 +1,13 @@
+## Send image and mask
+New feature: Send image and mask to Controlnet
+Similar to how one can send a mask and image to inpaint via the inpaint selection button, you can now send an image and a mask to a Controlnet at the same time! Useful if you only wish to mimic part of an image in a Controlnet, its a bit janky due to both Gradio and the Viben. Make sure to follow the instructions under the buttons, but during testing the worst that would happen if you didn't is that you would need to resend the image to Controlnet. The instructions are repeated below:
+```
+When sending an image to img2img Controlnet, make sure that "Upload Independent Control Image" is checked.
+When using the "Send image and mask to Controlnet" function, make sure that the "Use Mask" box is checked.
+Image and mask will not appear in the Controlnet section until you do an action that changes the UI in any way. (Ex: Changing the Controlnet tab, resizing the window, etc.)
+```
+
+## Fork Start
 A vibe coded fork of [Yankooliveira's](https://github.com/yankooliveira/sd-webui-photopea-embed) Photopea extension. In theory it fixes a bug that prevented "Inpaint Selection" from working correctly, but the code in the original must of heard that is was going to be replaced and the issue mysteriously stopped.
 
 Big thanks to Yankooliveira for the original extension! Check out his other projects [here](https://github.com/yankooliveira) and check out his itch.io [here!](https://yanko.itch.io)  
@@ -99,5 +109,6 @@ You agree not to use the extension or derivatives of the extension:
 
 - To generate or disseminate information for the purpose to be used for administration of justice, law enforcement, immigration or asylum processes, such as predicting an individual will commit fraud/crime commitment (e.g. by text profiling, drawing causal relationships between assertions made in documents, indiscriminate and arbitrarily-targeted use).
 -----
+
 
 
